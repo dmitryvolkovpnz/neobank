@@ -28,6 +28,22 @@ body{
   cursor: pointer;
 }
 
+@media (max-width: 1300px){
+  .button{
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 920px){
+  .button{
+    padding: 13px;
+    font-size: 13px;
+  }
+}
+
+
+
 .container{
   max-width: 1300px;
   margin: 0 auto;
@@ -42,6 +58,13 @@ body{
 @media (max-width: 920px){
   .container{
     max-width: 500px;
+  }
+}
+
+@media (max-width: 500px){
+  .container{
+    width: 90%;
+    padding: 0 10px;
   }
 }
 
@@ -69,6 +92,8 @@ body{
   }
 }
 
+
+
 .first {
   width: 100%;
   height: 558px;
@@ -86,6 +111,44 @@ body{
     }
     .card{
       width: 510px;
+    }
+  }
+}
+
+@media (max-width: 1300px){
+  .first {
+    &__content {
+      .main-content{
+        &__title{
+        }
+      }
+      .card{
+        &__item{
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px){
+  .first {
+    height: auto;
+    &__content {
+      margin-top: 80px;
+      display: block;
+      .main-content{
+        width: 100%;
+        &__title{
+          font-size: 28px;
+        }
+      }
+      .card{
+        margin-top: 20px;
+        width: 100%;
+        &__item{
+        }
+      }
     }
   }
 }
@@ -132,8 +195,46 @@ body{
   }
 }
 
+@media (max-width: 1300px){
+  .second{
+    &__content{
+      &__img{
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+      }
+      .second-section{
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 920px){
+  .second{
+    &__content{
+      display: block;
+      .second-section{
+        &__title{
+          font-size: 28px;
+        }
+        &__subtitle{
+          font-size: 16px;
+        }
+        ul{
+          list-style-type: none;
+          padding: 0;
+          li{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
 .cource{
-  width: 100%;
+  width: 94%;
   margin: 50px auto;
   background-color: #ececec;
   border-radius: 30px;
@@ -161,7 +262,7 @@ body{
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .cource{
     width: 90%;
     padding: 10px 20px;
@@ -171,13 +272,17 @@ body{
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 920px){
   .cource{
     width: 90%;
     padding: 10px 20px;
     &__container{
       display: block;
+      &__title{
+        font-size: 28px;
+      }
       &__date{
+        font-size: 16px;
         margin-bottom: 20px;
       }
     }
@@ -185,6 +290,7 @@ body{
   .coin{
     width: 100%;
     &__item{
+      font-size: 13px;
       width: 50%;
     }
   }
@@ -205,6 +311,28 @@ body{
   &__img{
     display: flex;
     justify-content: center;
+  }
+}
+
+@media (max-width: 1300px){
+  .word{
+    &__img{
+      width: 95%;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 920px){
+  .word{
+    &__title{
+      font-size: 28px;
+    }
+    &__subtitle{
+      font-size: 16px;
+    }
   }
 }
 
@@ -274,6 +402,56 @@ body{
   }
 }
 
+@media (max-width: 920px){
+  .call-to-action{
+    &__title{
+      &__small{
+        font-size: 23px;
+        margin-bottom: 20px;
+      }
+      &__big{
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+    }
+    &__subtitle{
+      font-size: 28px;
+    }
+    &__form{
+      width: 84%;
+      padding: 16px 28px;
+      margin: 0 auto;
+      &__input{
+        i{
+          font-size: 27px;
+        }
+        input{
+          width: 60%;
+          font-size: 18px;
+        }
+      }
+      &__button{
+        font-size: 13px;
+        padding: 14px;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px){
+  .call-to-action{
+    &__form{
+      width: 90%;
+      padding: 12px 20px;
+      &__button{
+        width: 45%;
+      }
+    }
+  }
+}
 
 .footer{
   width: 100%;
@@ -319,5 +497,34 @@ body{
     font-size: 16px;
     color: #2D3748;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 920px){
+  .footer{
+    padding: 64px 0;
+    &__content1{
+      display: block;
+    }
+    &__content2{
+      &__item{
+        font-size: 16px;
+        max-width: 60%;
+      }
+    }
+    &__content3{
+      font-size: 14px;
+    }
+  }
+  .contact{
+    &__phone{
+      font-size: 28px;
+      margin: 16px 0;
+    }
+    &__email{
+      font-size: 16px;
+      color: #2D3748;
+      cursor: pointer;
+    }
   }
 }
