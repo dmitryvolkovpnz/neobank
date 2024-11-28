@@ -45,29 +45,29 @@ function Cource() {
             <div className="container">
                 <div className="cource">
                     <div className="cource__container">
-                        <h1 className="cource__container__title">Курсы валют на сегодня</h1>
+                        <h1 className="cource__container__title">Exchange rate in internet bank</h1>
                         <div className="cource__container__date">
-                            Последнее обновление сегодня в <span className="date">18:00</span>
+                            Update every 15 minutes, TODAY
                         </div>
                     </div>
                     <div className="coin">
                         <div className="coin__item">
-                            usd: <span className="money_usd">{usd}</span> руб
+                            usd: <span className="money_usd">{usd}</span> rub
                         </div>
                         <div className="coin__item">
-                            eur: <span className="money_eur money">{eur}</span> руб
+                            eur: <span className="money_eur money">{eur}</span> rub
                         </div>
                         <div className="coin__item">
-                            bgn: <span className="money_bgn money">{bgn}</span> руб
+                            bgn: <span className="money_bgn money">{bgn}</span> rub
                         </div>
                         <div className="coin__item">
-                            cad: <span className="money_cad money">{cad}</span> руб
+                            cad: <span className="money_cad money">{cad}</span> rub
                         </div>
                         <div className="coin__item">
-                            egp: <span className="money_egp money">{egp}</span> руб
+                            egp: <span className="money_egp money">{egp}</span> rub
                         </div>
                         <div className="coin__item">
-                            chf: <span className="money_chf money">{chf}</span> руб
+                            chf: <span className="money_chf money">{chf}</span> rub
                         </div>
                     </div>
                 </div>
