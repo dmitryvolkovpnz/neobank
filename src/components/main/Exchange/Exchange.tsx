@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
-import axios from "axios";
 import './exchange.scss';
-
+import { fetchCource, fetchNews } from '../../service/api'
 
 function Exchange() {
     const [usd, setUsd] = useState ('');
@@ -13,36 +12,38 @@ function Exchange() {
     const [chf, setChf] = useState ('');
 
     useEffect(() => {
-        const fetchCource = async () => {
-            try {
-                const response = await axios.get(`https://v6.exchangerate-api.com/v6/ebc06a5036843508fdb31eb4/latest/RUB`);
-                const newUSD = (1 /  response.data.conversion_rates.USD).toFixed(2);
-                setUsd(newUSD);
-                const newCAD = (1 /  response.data.conversion_rates.CAD).toFixed(2);
-                setCad(newCAD);
-                const newEUR = (1 /  response.data.conversion_rates.EUR).toFixed(2);
-                setEur(newEUR);
-                const newBGN = (1 /  response.data.conversion_rates.BGN).toFixed(2);
-                setBgn(newBGN);
-                const newEGP = (1 /  response.data.conversion_rates.EGP).toFixed(2);
-                setEgp(newEGP);
-                const newCHF = (1 /  response.data.conversion_rates.CHF).toFixed(2);
-                setChf(newCHF);
-            } catch (error) {
-                console.log('Ошибки в выгрузке', error);
-            }
+        const apiExchange = async () => {
+            const coin = await fetchCource();
+            const newUSD = (1 / coin.USD).toFixed(2);
+            setUsd(newUSD);
+            const newCAD = (1 / coin.CAD).toFixed(2);
+            setCad(newCAD);
+            const newEUR = (1 / coin.EUR).toFixed(2);
+            setEur(newEUR);
+            const newBGN = (1 / coin.BGN).toFixed(2);
+            setBgn(newBGN);
+            const newEGP = (1 / coin.EGP).toFixed(2);
+            setEgp(newEGP);
+            const newCHF = (1 / coin.CHF).toFixed(2);
+            setChf(newCHF);
         };
-        fetchCource();
+        apiExchange();
 
-        const timeoutId = window.setInterval(()=>{
-            fetchCource();
-        }, 15000);
-        return () => {
-            window.clearInterval(timeoutId);
+        const apiNews = async () => {
+            const news = await fetchNews();
+            console.log(news);
         };
+        apiNews();
+       // const timeoutId = window.setInterval(()=>{
+       //     apiExchange();
+       // }, 15000);
+
+       // return () => {
+       //     window.clearInterval(timeoutId);
+       // };
+
         }, []);
     return (
-        <div>
             <div className="container">
                 <div className="exchange">
                     <div className="exchange__container">
@@ -73,7 +74,6 @@ function Exchange() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 
 }
