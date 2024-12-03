@@ -1,0 +1,75 @@
+.footer{
+    width: 100%;
+    background-color: #E7E7E7;
+    padding: 96px 0;
+    &__content1{
+      display: flex;
+      justify-content: space-between;
+  
+    }
+    &__content2{
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      &__item{
+        cursor: pointer;
+        margin-top: 10px;
+        max-width: 20%;
+      }
+    }
+    hr{
+      height: 2px;
+      background-color: #fff;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      border: none;
+    }
+    &__content3{
+      color: #2D3748;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  
+  .contact{
+    &__phone{
+      font-size: 30px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    &__email{
+      font-size: 16px;
+      color: #2D3748;
+      cursor: pointer;
+    }
+  }
+  
+  @media (max-width: 920px){
+    .footer{
+      padding: 64px 0;
+      &__content1{
+        display: block;
+      }
+      &__content2{
+        &__item{
+          font-size: 16px;
+          max-width: 60%;
+        }
+      }
+      &__content3{
+        font-size: 14px;
+      }
+    }
+    .contact{
+      &__phone{
+        font-size: 28px;
+        margin: 16px 0;
+      }
+      &__email{
+        font-size: 16px;
+        color: #2D3748;
+        cursor: pointer;
+      }
+    }
+  }

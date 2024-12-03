@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../ui/button/Button';
+import './header.scss'
 
 function Header() {
     return (
@@ -15,7 +17,7 @@ function Header() {
                                 <li>Resources</li>
                             </ul>
                         </nav>
-                        <button className="button">Online Bank</button>
+                        <Button>Online Bank</Button>
                     </div>
                 </div>
             </header>

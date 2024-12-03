@@ -1,4 +1,5 @@
 import React from 'react';
+import './calltoaction.scss'
 
 function CallToAction() {
     return (

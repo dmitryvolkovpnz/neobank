@@ -1,0 +1,39 @@
+.word{
+    width: 100%;
+    &__title{
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    &__subtitle{
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    &__img{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 1300px){
+    .word{
+      &__img{
+        width: 95%;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 920px){
+    .word{
+      &__title{
+        font-size: 28px;
+      }
+      &__subtitle{
+        font-size: 16px;
+      }
+    }
+  }

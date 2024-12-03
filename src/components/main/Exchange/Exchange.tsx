@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
 import axios from "axios";
+import './exchange.scss';
 
 
-function Cource() {
+function Exchange() {
     const [usd, setUsd] = useState ('');
     const [eur, setEur] = useState('');
     const [bgn, setBgn] = useState('');
@@ -43,10 +44,10 @@ function Cource() {
     return (
         <div>
             <div className="container">
-                <div className="cource">
-                    <div className="cource__container">
-                        <h1 className="cource__container__title">Exchange rate in internet bank</h1>
-                        <div className="cource__container__date">
+                <div className="exchange">
+                    <div className="exchange__container">
+                        <h1 className="exchange__container__title">Exchange rate in internet bank</h1>
+                        <div className="exchange__container__date">
                             Update every 15 minutes, TODAY
                         </div>
                     </div>
@@ -77,4 +78,4 @@ function Cource() {
 
 }
 
-export default Cource;
+export default Exchange;

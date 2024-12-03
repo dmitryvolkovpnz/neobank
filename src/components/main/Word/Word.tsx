@@ -1,4 +1,5 @@
 import React from 'react';
+import './word.scss';
 
 function Word() {
     return (

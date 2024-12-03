@@ -1,0 +1,116 @@
+.call-to-action{
+    width: 100%;
+    margin: 100px 0;
+    &__title{
+      &__small{
+        text-align: center;
+        font-size: 24px;
+        color: #EB801D;
+        margin-bottom: 65px;
+      }
+      &__big{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 65px;
+      }
+    }
+    &__subtitle{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 100px;
+    }
+    &__form{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 525px;
+      padding: 22px 32px;
+      background-color: #fff;
+      margin: 0 auto;
+      border-radius: 20px;
+      -webkit-box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
+      &__input{
+        i{
+          font-size: 27px;
+          color: #9092B0;
+        }
+        input{
+          margin-top: -2px;
+          width: 210px;
+          font-size: 20px;
+          margin-left: 17px;
+          background-color: #FFF;
+          border: none;
+          color: #9092B0;
+          outline:none;
+        }
+      }
+      &__button{
+        font-size: 16px;
+        padding: 17px;
+        color: #fff;
+        background-color: #686DF1;
+        border: none;
+        border-radius: 20px;
+        font-weight: 800;
+        cursor: pointer;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 920px){
+    .call-to-action{
+      &__title{
+        &__small{
+          font-size: 23px;
+          margin-bottom: 20px;
+        }
+        &__big{
+          font-size: 28px;
+          margin-bottom: 20px;
+        }
+      }
+      &__subtitle{
+        font-size: 28px;
+      }
+      &__form{
+        width: 84%;
+        padding: 16px 28px;
+        margin: 0 auto;
+        &__input{
+          i{
+            font-size: 27px;
+          }
+          input{
+            width: 60%;
+            font-size: 18px;
+          }
+        }
+        &__button{
+          font-size: 13px;
+          padding: 14px;
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 500px){
+    .call-to-action{
+      &__form{
+        width: 90%;
+        padding: 12px 20px;
+        &__button{
+          width: 45%;
+        }
+      }
+    }
+  }

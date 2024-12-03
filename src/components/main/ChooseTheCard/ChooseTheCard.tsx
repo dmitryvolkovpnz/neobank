@@ -1,14 +1,16 @@
 import React from 'react';
+import Button from '../../ui/button/Button';
+import './choosethecard.scss';
 
-function First() {
+function ChooseTheCard() {
     return (
-        <div className="first">
+        <div className="choose-the-card">
             <div className="container">
-                <div className="first__content">
+                <div className="choose-the-card__content">
                     <div className="main-content">
                         <div className="main-content__title">Choose the design you like and apply for card right now
                         </div>
-                        <button className="button">Choose the card</button>
+                        <Button>Choose the card</Button>
                     </div>
                     <div className="card">
                         <img className="card__item" src="img/card_1.png" alt=""/>
@@ -22,4 +24,4 @@ function First() {
     );
 }
 
-export default First;
+export default ChooseTheCard;

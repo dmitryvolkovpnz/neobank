@@ -1,14 +1,15 @@
 import React from 'react';
+import './features.scss';
 
-function Second() {
+function Features() {
     return (
-        <div className="second">
+        <div className="features">
             <div className="container">
-                <div className="second__content rubik">
-                    <img className="second__content__img" src="img/img.png" alt=""/>
-                    <div className="second-section">
-                        <div className="second-section__title">We Provide Many Features You Can Use</div>
-                        <div className="second-section__subtitle">You can explore the features that we provide with fun
+                <div className="features__content rubik">
+                    <img className="features__content__img" src="img/img.png" alt=""/>
+                    <div className="features-section">
+                        <div className="features-section__title">We Provide Many Features You Can Use</div>
+                        <div className="features-section__subtitle">You can explore the features that we provide with fun
                             and have their own functions each feature
                         </div>
                         <ul>
@@ -24,4 +25,4 @@ function Second() {
     );
 }
 
-export default Second;
+export default Features;
