@@ -1,0 +1,23 @@
+.carousel {
+    display: flex;
+    align-items: center;
+
+    &__slides {
+    display: flex;
+    overflow: hidden;
+    }
+
+    &__slide {
+        min-width: 250px; /* Adjust based on your design */
+        margin: 0 10px;
+    }
+    
+    button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    }
+}
+
+  
+
+  

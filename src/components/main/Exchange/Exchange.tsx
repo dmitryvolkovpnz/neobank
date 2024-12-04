@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
 import './exchange.scss';
-import { fetchCource, fetchNews } from '../../service/api'
+import { fetchCource } from '../../service/api'
 
 function Exchange() {
     const [usd, setUsd] = useState ('');
@@ -28,12 +28,6 @@ function Exchange() {
             setChf(newCHF);
         };
         apiExchange();
-
-        const apiNews = async () => {
-            const news = await fetchNews();
-            console.log(news);
-        };
-        apiNews();
        // const timeoutId = window.setInterval(()=>{
        //     apiExchange();
        // }, 15000);

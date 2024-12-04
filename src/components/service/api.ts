@@ -20,10 +20,9 @@ export {fetchCource};
 const fetchNews = async () =>{
     try{
         const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${keyNews}`);
-        console.log(response.data.articles);
+        return response.data.articles;
     } catch (error){
         console.log('Ошибки при выгрузке:', error);
     }
-}
-
+};
 export {fetchNews};
