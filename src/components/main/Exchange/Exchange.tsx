@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
 import './exchange.scss';
-import { fetchCource, fetchNews } from '../../service/api'
+import { fetchCource } from '../../service/api'
 
 function Exchange() {
     const [usd, setUsd] = useState ('');
@@ -10,7 +10,7 @@ function Exchange() {
     const [cad, setCad] = useState ('');
     const [egp, setEgp] = useState ('');
     const [chf, setChf] = useState ('');
-
+    const [time, setTime] = useState(new Date().toLocaleTimeString('ru-RU'));
     useEffect(() => {
         const apiExchange = async () => {
             const coin = await fetchCource();
@@ -29,18 +29,15 @@ function Exchange() {
         };
         apiExchange();
 
-        const apiNews = async () => {
-            const news = await fetchNews();
-            console.log(news);
-        };
-        apiNews();
-       // const timeoutId = window.setInterval(()=>{
-       //     apiExchange();
-       // }, 15000);
+        const timeoutId = window.setInterval(()=>{
+            apiExchange();
+            const newTime = new Date().toLocaleTimeString('ru-RU');
+            setTime(newTime);
+        }, 900000);
 
-       // return () => {
-       //     window.clearInterval(timeoutId);
-       // };
+        return () => {
+            window.clearInterval(timeoutId);
+        };
 
         }, []);
     return (
@@ -49,7 +46,7 @@ function Exchange() {
                     <div className="exchange__container">
                         <h1 className="exchange__container__title">Exchange rate in internet bank</h1>
                         <div className="exchange__container__date">
-                            Update every 15 minutes, TODAY
+                            Update every 15 minutes, <br />last update {time}
                         </div>
                     </div>
                     <div className="coin">

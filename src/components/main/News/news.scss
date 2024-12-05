@@ -1,0 +1,42 @@
+.carousel {
+    display: flex;
+    align-items: center;
+
+    &__slides {
+    display: flex;
+    overflow: hidden;
+    }
+
+    &__slide {
+        margin: 0 10px;
+    }
+    
+    button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    }
+}
+
+@media (max-width: 1300px) {
+    .carousel {
+        &__slide {
+            margin: 0 10px;
+        }
+    }
+}
+
+@media (max-width: 920px){
+    .carousel {
+        &__slide {
+            margin: 0 10px;
+        }
+    }
+}
+
+@media (max-width: 500px){
+    .carousel {
+        &__slide {
+            margin: 0 10px;
+        }
+    }
+}
