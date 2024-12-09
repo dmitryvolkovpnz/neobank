@@ -28,13 +28,13 @@ function Exchange() {
             setChf(newCHF);
         };
         apiExchange();
-       // const timeoutId = window.setInterval(()=>{
-       //     apiExchange();
-       // }, 15000);
+        const timeoutId = window.setInterval(()=>{
+            apiExchange();
+        }, 900000);
 
-       // return () => {
-       //     window.clearInterval(timeoutId);
-       // };
+        return () => {
+            window.clearInterval(timeoutId);
+        };
 
         }, []);
     return (

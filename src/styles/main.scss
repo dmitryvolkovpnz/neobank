@@ -19,18 +19,21 @@ body{
 
 .container{
   max-width: 1300px;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
 @media (max-width: 1300px){
   .container{
-    max-width: 920px;
+    max-width: 100%;
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 920px){
   .container{
-    max-width: 500px;
+    max-width: 100%;
+    padding: 0 15px;
   }
 }
 

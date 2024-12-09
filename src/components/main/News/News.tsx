@@ -18,13 +18,13 @@ function News(){
             setItems(news);
         };
         apiNews();
-       // const timeoutId = window.setInterval(()=>{
-       //     apiExchange();
-       // }, 15000);
+        const timeOut = window.setInterval(()=>{
+           apiNews();
+        }, 900000);
 
-       // return () => {
-       //     window.clearInterval(timeoutId);
-       // };
+        return () => {
+            window.clearInterval(timeOut);
+        };
 
         }, []);
         const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,19 +1,21 @@
 .call-to-action{
     width: 100%;
     margin: 100px 0;
-    &__title{
-      &__small{
+    
+    .title{
+      &_small{
         text-align: center;
         font-size: 24px;
         color: #EB801D;
         margin-bottom: 65px;
       }
-      &__big{
+      &_big{
         text-align: center;
         font-size: 30px;
         margin-bottom: 65px;
       }
     }
+
     &__subtitle{
       text-align: center;
       font-size: 30px;
@@ -67,15 +69,18 @@
   @media (max-width: 920px){
     .call-to-action{
       &__title{
-        &__small{
+        margin-bottom: 20px;
+      }
+      
+      .title{
+        &_small{
           font-size: 23px;
-          margin-bottom: 20px;
         }
-        &__big{
+        &_big{
           font-size: 28px;
-          margin-bottom: 20px;
         }
       }
+
       &__subtitle{
         font-size: 28px;
       }

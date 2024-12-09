@@ -14,17 +14,17 @@ function Footer () {
                         </div>
                     </div>
                     <div className="footer__content2">
-                        <div className="footer__content2__item">About bank</div>
-                        <div className="footer__content2__item">Ask a Question</div>
-                        <div className="footer__content2__item">Quality of service</div>
-                        <div className="footer__content2__item">Requisites</div>
-                        <div className="footer__content2__item">Press center</div>
-                        <div className="footer__content2__item">Bank career</div>
-                        <div className="footer__content2__item">Investors</div>
-                        <div className="footer__content2__item">Analytics</div>
-                        <div className="footer__content2__item">Business and processes</div>
+                        <div className="content2__item">About bank</div>
+                        <div className="content2__item">Ask a Question</div>
+                        <div className="content2__item">Quality of service</div>
+                        <div className="content2__item">Requisites</div>
+                        <div className="content2__item">Press center</div>
+                        <div className="content2__item">Bank career</div>
+                        <div className="content2__item">Investors</div>
+                        <div className="content2__item">Analytics</div>
+                        <div className="content2__item">Business and processes</div>
                     </div>
-                    <div className="footer__content2__item">Compliance and business ethics</div>
+                    <div className="content2__item">Compliance and business ethics</div>
                     <hr/>
                     <div className="footer__content3">
                         We use cookies to personalize our services and improve the user experience of our website.

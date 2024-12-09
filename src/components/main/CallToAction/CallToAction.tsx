@@ -5,8 +5,8 @@ function CallToAction() {
     return (
         <div className="call-to-action">
             <div className="container">
-                <div className="call-to-action__title__small">Support</div>
-                <div className="call-to-action__title__big">Subscribe Newsletter & get</div>
+                <div className="call-to-action__title title_small">Support</div>
+                <div className="call-to-action__title title_big">Subscribe Newsletter & get</div>
                 <div className="call-to-action__subtitle">Bank News</div>
                 <form action="" className="call-to-action__form">
                     <div className="call-to-action__form__input">

@@ -23,5 +23,21 @@
         margin: 0 20px;
         cursor: pointer;
       }
+
+    }
+}
+
+@media (max-width: 500px) {
+  .header{
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+
+    
+    &__nav{
+      margin-top: 20px;
+      display: block;
+      margin-top: 20px;
     }
   }
+}
