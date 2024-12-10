@@ -29,15 +29,25 @@
 
 @media (max-width: 500px) {
   .header{
-    align-items: flex-start;
-    flex-direction: column;
+    margin-top: 20px;
+    flex-direction: row;
     height: auto;
-
-    
+    flex-wrap: wrap;
+    &__logo{
+      order: 1;
+    }
     &__nav{
-      margin-top: 20px;
+      width: 100%;
+      flex: 1 0 100%;
       display: block;
       margin-top: 20px;
+      order: 2;
+      li{
+        margin: 0 5px;
+      }
+    }
+    .button{
+      order: 1;
     }
   }
 }

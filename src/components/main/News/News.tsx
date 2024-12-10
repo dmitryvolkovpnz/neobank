@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './news.scss';
 import { fetchNews } from "../../service/api";
 
-type tItem = {
+type TItem = {
     title: string;
     urlToImage: string;
     url: string;
@@ -10,7 +10,7 @@ type tItem = {
 }
 
 function News(){
-    const [items, setItems] = useState<tItem[]>([]);
+    const [items, setItems] = useState<TItem[]>([]);
     
     useEffect(() => {
         const apiNews = async () => {
@@ -28,18 +28,19 @@ function News(){
 
         }, []);
         const [currentIndex, setCurrentIndex] = useState(0);
-        const itemsPerPage = 4;
       
         const goToPrevious = () => {
           setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
         };
       
         const goToNext = () => {
-          setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 1));
+          setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 3));
         };
       
-        const isNextButtonDisabled = currentIndex + 1 >= items.length;
+        const isNextButtonDisabled = currentIndex + 3 >= items.length;
         const isPrevButtonDisabled = currentIndex === 0;
+
+        const filterItem = items.slice(currentIndex)
     return(
         <div className="container">
             <div className="news">
@@ -47,19 +48,18 @@ function News(){
                 <div className="news__subtitle">We update the news feed every 15 minutes. You can learn more by clicking on the news you are interested in.</div>
            <div className="carousel">
                 <div className="carousel__slides">
-                    {items.slice(currentIndex, currentIndex + itemsPerPage).map((items, id) => (
-                            <a href={items.url}>
-                                <div key={id} className="slide">
-                            <div className="slide__img">
-                                <img  src={items.urlToImage} alt="" />
+                    {filterItem.map((items, id) => (
+                        <a key={id} className="slide" href={items.url}>
+                            <div>
+                                <div className="slide__img">
+                                    <img  src={items.urlToImage} alt="" />
+                                </div>
+                                <div className="slide__title"> {items.title} </div>
+                                <div className="slide__desc"> {items.description} </div>
                             </div>
-                            <div className="slide__title"> {items.title} </div>
-                            <div className="slide__desc"> {items.description} </div>
-                        </div>
                     </a> 
                     ))}
                 </div>
-                
             </div>
             <div className="buttonGroup">
                     <button className="btn" onClick={goToPrevious} disabled={isPrevButtonDisabled}>
