@@ -3,12 +3,14 @@
     margin: 100px 0;
     
     .title{
+      
       &_small{
         text-align: center;
         font-size: 24px;
         color: #EB801D;
         margin-bottom: 65px;
       }
+      
       &_big{
         text-align: center;
         font-size: 30px;
@@ -22,6 +24,7 @@
       font-weight: 500;
       margin-bottom: 100px;
     }
+    
     &__form{
       display: flex;
       align-items: center;
@@ -34,11 +37,17 @@
       -webkit-box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
       -moz-box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
       box-shadow: 0px 0px 19px 0px rgba(34, 60, 80, 0.2);
+    }
+    
+    .form{
+      
       &__input{
+        
         i{
           font-size: 27px;
           color: #9092B0;
         }
+        
         input{
           margin-top: -2px;
           width: 210px;
@@ -50,6 +59,7 @@
           outline:none;
         }
       }
+      
       &__button{
         font-size: 16px;
         padding: 17px;
@@ -59,23 +69,28 @@
         border-radius: 20px;
         font-weight: 800;
         cursor: pointer;
+        
         i {
           margin-right: 5px;
         }
       }
-    }
+    }  
   }
   
   @media (max-width: 920px){
+    
     .call-to-action{
+      
       &__title{
         margin-bottom: 20px;
       }
       
       .title{
+        
         &_small{
           font-size: 23px;
         }
+        
         &_big{
           font-size: 28px;
         }
@@ -84,38 +99,53 @@
       &__subtitle{
         font-size: 28px;
       }
+      
       &__form{
         width: 84%;
         padding: 16px 28px;
         margin: 0 auto;
+      }
+      
+      .form{
+       
         &__input{
+          
           i{
             font-size: 27px;
           }
+          
           input{
             width: 60%;
             font-size: 18px;
           }
         }
+        
         &__button{
           font-size: 13px;
           padding: 14px;
+          
           i {
             margin-right: 5px;
           }
         }
+      }  
       }
-    }
   }
   
   @media (max-width: 500px){
+    
     .call-to-action{
+      
       &__form{
         width: 90%;
         padding: 12px 20px;
+      }
+      
+      .form{
+        
         &__button{
           width: 45%;
         }
-      }
+      }  
     }
-  }
+}

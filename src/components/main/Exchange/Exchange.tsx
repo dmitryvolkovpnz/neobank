@@ -41,8 +41,8 @@ function Exchange() {
             <div className="container">
                 <div className="exchange">
                     <div className="exchange__container">
-                        <h1 className="exchange__container__title">Exchange rate in internet bank</h1>
-                        <div className="exchange__container__date">
+                        <h1 className="exchange__title">Exchange rate in internet bank</h1>
+                        <div className="exchange__date">
                             Update every 15 minutes, TODAY
                         </div>
                     </div>

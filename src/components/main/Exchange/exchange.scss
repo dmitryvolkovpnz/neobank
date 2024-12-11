@@ -4,16 +4,17 @@
     background-color: #ececec;
     border-radius: 30px;
     padding: 20px 40px;
+    
     &__container{
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
-      &__title{
-        margin-bottom: 30px;
-        margin-top: 0s;
-      }
     }
-  
+
+    &__title{
+      margin-bottom: 30px;
+      margin-top: 0s;
+    }
   }
   
   .coin{
@@ -21,6 +22,7 @@
     width: 50%;
     display: flex;
     flex-wrap: wrap;
+    
     &__item{
       width: 30%;
       text-transform: uppercase;
@@ -29,32 +31,36 @@
   }
   
   @media (max-width: 1300px) {
+    
     .exchange{
       width: 90%;
       padding: 10px 20px;
     }
+    
     .coin{
       width: 80%;
     }
   }
   
   @media (max-width: 920px){
+    
     .exchange{
       width: 90%;
       padding: 10px 20px;
-      &__container{
-        display: block;
-        &__title{
-          font-size: 28px;
+        
+      &__title{
+        font-size: 28px;
         }
-        &__date{
-          font-size: 16px;
-          margin-bottom: 20px;
+        
+      &__date{
+        font-size: 16px;
+        margin-bottom: 20px;
         }
-      }
     }
+    
     .coin{
       width: 100%;
+      
       &__item{
         font-size: 13px;
         width: 50%;
