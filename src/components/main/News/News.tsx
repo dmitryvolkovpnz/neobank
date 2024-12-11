@@ -13,9 +13,13 @@ function News(){
     const [items, setItems] = useState<TItem[]>([]);
     
     useEffect(() => {
+        let ignore = false;
+
         const apiNews = async () => {
             const news = await fetchNews();
-            setItems(news);
+            if (!ignore) {
+                setItems(news);
+            }
         };
         apiNews();
         const timeOut = window.setInterval(()=>{
@@ -23,6 +27,7 @@ function News(){
         }, 900000);
 
         return () => {
+            ignore = true;
             window.clearInterval(timeOut);
         };
 
@@ -34,13 +39,14 @@ function News(){
         };
       
         const goToNext = () => {
-          setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 3));
+          setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 13));
         };
       
-        const isNextButtonDisabled = currentIndex + 3 >= items.length;
+        const isNextButtonDisabled = currentIndex + 13 >= items.length;
         const isPrevButtonDisabled = currentIndex === 0;
 
-        const filterItem = items.slice(currentIndex)
+        const filterItem = items.slice(currentIndex).filter((items)=> items.url !== "https://removed.com");
+
     return(
         <div className="container">
             <div className="news">
@@ -49,7 +55,13 @@ function News(){
            <div className="carousel">
                 <div className="carousel__slides">
                     {filterItem.map((items, id) => (
-                        <a key={id} className="slide" href={items.url}>
+                        <a 
+                        key={id} 
+                        className="slide" 
+                        href={items.url} 
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        target="_blank"
+                        rel="noreferrer">
                             <div>
                                 <div className="slide__img">
                                     <img  src={items.urlToImage} alt="" />

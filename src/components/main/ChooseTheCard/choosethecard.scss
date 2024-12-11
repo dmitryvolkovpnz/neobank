@@ -19,15 +19,22 @@
   
       .card{
         width: 520px;
-        
+        font-size: 0;
+        line-height: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
         &__item{
-          margin: 3px;
+          padding: 0;
+          margin: 0;
         }
       }
     }
   }
   
   @media (max-width: 1300px){
+    
     .choose-the-card {
   
       &__content {
@@ -43,6 +50,7 @@
   }
   
   @media (max-width: 920px){
+    
     .choose-the-card {
       height: auto;
   

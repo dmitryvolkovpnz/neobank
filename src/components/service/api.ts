@@ -19,7 +19,7 @@ export {fetchCource};
 
 const fetchNews = async () =>{
     try{
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=Top business headlines in the US right now&pageSize=20&apiKey=${newsapiToken}`);
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=Top business headlines in the US right now&pageSize=25&apiKey=${newsapiToken}`);
         return response.data.articles;
     } catch (error){
         console.log('Ошибки при выгрузке:', error);
