@@ -31,21 +31,22 @@ function News(){
             window.clearInterval(timeOut);
         };
 
-        }, []);
+    }, []);
+
         const [currentIndex, setCurrentIndex] = useState(0);
       
         const goToPrevious = () => {
-          setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+          setCurrentIndex(currentIndex - 1);
         };
       
         const goToNext = () => {
-          setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 13));
+          setCurrentIndex(currentIndex + 1);
         };
       
-        const isNextButtonDisabled = currentIndex + 13 >= items.length;
+        const isNextButtonDisabled = currentIndex >= items.length;
         const isPrevButtonDisabled = currentIndex === 0;
 
-        const filterItem = items.slice(currentIndex).filter((items)=> items.url !== "https://removed.com");
+        const filterItem = items.filter((items)=> items.url !== "https://removed.com");
 
     return(
         <div className="container">

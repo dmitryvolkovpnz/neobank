@@ -5,13 +5,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    
-      .content{
-        &__img{
-          width: 508px;
-          margin-bottom: 48px;
-        } 
-      } 
+    }
+
+    &__img{
+      width: 508px;
+      margin-bottom: 48px;
+    } 
 
       .features-section{
         
@@ -47,22 +46,16 @@
           }
         }
       }
-    }
-  }
+}
   
   @media (max-width: 1300px){
     
     .features{
-      
-      &__content{
-        
-        .content{
-            
-          &__img{
-            display: block;
-            margin: 20px auto;
-            width: 80%;
-          }
+  
+        &__img{
+          display: block;
+          margin: 20px auto;
+          width: 80%;
         }
 
         .features-section{
@@ -70,7 +63,6 @@
         }
       }
     }
-  }
   
   @media (max-width: 920px){
     
