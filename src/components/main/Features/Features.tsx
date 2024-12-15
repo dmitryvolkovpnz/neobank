@@ -6,7 +6,7 @@ function Features() {
         <div className="features">
             <div className="container">
                 <div className="features__content rubik">
-                    <img className="features__content__img" src="img/img.png" alt=""/>
+                    <img className="features__img" src="img/img.png" alt=""/>
                     <div className="features-section">
                         <div className="features-section__title">We Provide Many Features You Can Use</div>
                         <div className="features-section__subtitle">You can explore the features that we provide with fun
