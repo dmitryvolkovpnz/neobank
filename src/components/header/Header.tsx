@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../ui/button/Button';
 import './header.scss'
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
@@ -11,7 +12,7 @@ function Header() {
                         <div className="header__logo">NeoBank</div>
                         <nav className="header__nav">
                             <ul>
-                                <li>Credit card</li>
+                                <li><Link to="/loan-page">Credit card</Link></li>
                                 <li>Product</li>
                                 <li>Account</li>
                                 <li>Resources</li>
