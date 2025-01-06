@@ -10,7 +10,7 @@ function Loanpage() {
       <DigitalCart />
       <AboutCart />
       <HowToGetCart />
-      <CustomizeYourCard/>
+      <CustomizeYourCard />
     </>
   )
 }
