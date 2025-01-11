@@ -1,47 +1,49 @@
 import React from 'react'
 import './aboutcart.scss'
+import Accordion from './Accordion/Accordion';
+import AboutCardItem from './AboutCardItem/AboutCardItem';
+import Cashback from './CashBack/Cashback';
+import RatesAndCondition from './RatesAndCondition/RatesAndCondition';
 
 function AboutCart() {
   return (
     <div className='about-cart'>
       <div className='container'>
-        <div className='about-cart__items'> 
-          <div className='about-item shadow'>
-              <div className='about-item__img'>
-                <img src="img/Money.svg" />
+            <div className='match-outcome'>
+                <ul className='tabs'>
+                  <li className='tab'>
+                    <input className='switcher' type="radio" id="tab-1" name="tabs" defaultChecked />
+                    <label htmlFor="tab-1">About card</label>
+                    <div className="tab-content">
+                      <AboutCardItem />
+                    </div>
+                  </li>
+
+                  <li className='tab'>
+                    <input className='switcher' type="radio" id="tab-2" name="tabs" />
+                    <label htmlFor="tab-2">Rates and conditions</label>
+                    <div className="tab-content">
+                      <RatesAndCondition />
+                    </div>
+                  </li>
+
+                  <li className='tab'>
+                    <input className='switcher' type="radio" id="tab-3" name="tabs" />
+                    <label htmlFor="tab-3">Cashback</label>
+                    <div className="tab-content">
+                      <Cashback />
+                    </div>
+                  </li>
+
+                  <li className='tab'>
+                    <input className='switcher' type="radio" id="tab-4" name="tabs" />
+                    <label htmlFor="tab-4">FAQ</label>
+                    <div className="tab-content">
+                      <Accordion />
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <div className='about-item__title'>Up to 50 000 ₽</div>
-              <div className='about-item__subtitle'>Cash and transfers without commission and percent</div>
-          </div>
-          <div className='about-item shadow firstcolor'>
-              <div className='about-item__img'>
-                <img src="img/Calendar.svg" />
-              </div>
-              <div className='about-item__title'>Up to 160 days</div>
-              <div className='about-item__subtitle'>Without percent on the loan</div>
-          </div>
-          <div className='about-item shadow'>
-              <div className='about-item__img'>
-                <img src="img/Clock.svg" />
-              </div>
-              <div className='about-item__title'>Free delivery</div>
-              <div className='about-item__subtitle'>We will deliver your card by courier at a convenient place and time for you</div>
-          </div>
-          <div className='about-item shadow firstcolor'>
-              <div className='about-item__img'>
-                <img src="img/Bag.svg" />
-              </div>
-              <div className='about-item__title'>Up to 12 months</div>
-              <div className='about-item__subtitle'>No percent. For equipment, clothes and other purchases in installments</div>
-          </div>
-          <div className='about-item shadow'>
-              <div className='about-item__img'>
-                <img src="img/Creditcard.svg" />
-              </div>
-              <div className='about-item__title'>Convenient deposit and withdrawal</div>
-              <div className='about-item__subtitle'>At any ATM. Top up your credit card for free with cash or transfer from other cards</div>
-          </div>
-        </div>
       </div>
     </div>
   )
