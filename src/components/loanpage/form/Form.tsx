@@ -30,8 +30,8 @@ const PrescoringForm: React.FC = () => {
 
   const validationSchema = Yup.object({
     amount: Yup.number()
-      .min(1000, 'Минимальная сумма 1000')
-      .max(100000, 'Максимальная сумма 100000')
+      .min(15000, 'Минимальная сумма 15000')
+      .max(600000, 'Максимальная сумма 600000')
       .required('Сумма обязательна'),
     term: Yup.number()
       .oneOf([6, 12, 18, 24], 'Неверный термин')
@@ -58,9 +58,7 @@ const PrescoringForm: React.FC = () => {
   });
 
   const handleSubmit = (values: FormValues) => {
-    // Здесь может быть код для отправки данных на сервер
     console.log('Отправка данных:', values);
-    // Показать индикатор загрузки
   };
 
   return (
@@ -69,59 +67,65 @@ const PrescoringForm: React.FC = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ values, errors, touched }) => (
+      {({ values, errors, touched, setFieldValue }) => (
         <Form>
-            <div className='form-field'>
-                <Label htmlFor="amount">Сумма</Label>
-                <Field name="amount" type="number" />
-                {errors.amount && touched.amount ? (
-                    <div style={{ color: 'red' }}>{errors.amount}</div>
-                ) : null}
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="term">Срок</Label>
-                    <Field as="select" name="term">
-                        <option value={6}>6 месяцев</option>
-                        <option value={12}>12 месяцев</option>
-                        <option value={18}>18 месяцев</option>
-                        <option value={24}>24 месяца</option>
-                    </Field>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="firstName">Имя</Label>
-                <Field name="firstName" />
-                <ErrorMessage name="firstName" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="lastName">Фамилия</Label>
-                <Field name="lastName" />
-                <ErrorMessage name="lastName" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="middleName">Отчество</Label>
-                <Field name="middleName" />
-                <ErrorMessage name="middleNam" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="email">Email</Label>
-                <Field name="email" type="email" />
-                <ErrorMessage name="email" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="birthdate">Дата рождения</Label>
-                <Field name="birthdate" type="date" />
-                <ErrorMessage name="birthdate" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="passportSeries">Серия паспорта</Label>
-                <Field name="passportSeries" />
-                <ErrorMessage name="passportSeries" component="div" className="error-message"/>
-            </div>
-            <div className='form-field'>
-                <Label htmlFor="passportNumber">Номер паспорта</Label>
-                <Field name="passportNumber" />
-                <ErrorMessage name="passportNumber" component="div" className="error-message"/>
-            </div>
+          <div className='form-field'>
+            <Label htmlFor="amount">Сумма: {values.amount}</Label>
+            <Field 
+              name="amount" 
+              type="range" 
+              min={15000} 
+              max={600000} 
+              step={1000}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue("amount", Number(e.target.value))}
+            />
+            {errors.amount && touched.amount ? (
+                <div style={{ color: 'red' }}>{errors.amount}</div>
+            ) : null}
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="term">Срок</Label>
+            <Field as="select" name="term">
+              <option value={6}>6 месяцев</option>
+              <option value={12}>12 месяцев</option>
+              <option value={18}>18 месяцев</option>
+              <option value={24}>24 месяца</option>
+            </Field>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="firstName">Имя</Label>
+            <Field name="firstName" />
+            <ErrorMessage name="firstName" component="div" className="error-message"/>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="lastName">Фамилия</Label>
+            <Field name="lastName" />
+            <ErrorMessage name="lastName" component="div" className="error-message"/>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="middleName">Отчество</Label>
+            <Field name="middleName" />
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="email">Email</Label>
+            <Field name="email" type="email" />
+            <ErrorMessage name="email" component="div" className="error-message"/>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="birthdate">Дата рождения</Label>
+            <Field name="birthdate" type="date" />
+            <ErrorMessage name="birthdate" component="div" className="error-message"/>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="passportSeries">Серия паспорта</Label>
+            <Field name="passportSeries" />
+            <ErrorMessage name="passportSeries" component="div" className="error-message"/>
+          </div>
+          <div className='form-field'>
+            <Label htmlFor="passportNumber">Номер паспорта</Label>
+            <Field name="passportNumber" />
+            <ErrorMessage name="passportNumber" component="div" className="error-message"/>
+          </div>
           <button type="submit" className="submit-button">Отправить</button>
         </Form>
       )}
