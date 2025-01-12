@@ -1,0 +1,79 @@
+$primary-color: #4a90e2; // Основной цвет для кнопок и акцентов
+$border-color: #e0e0e0; // Цвет рамок и разделителей
+$error-color: #e74c3c; // Цвет для сообщений об ошибках
+$success-color: #2ecc71; // Цвет для успешных сообщений
+
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-field {
+        margin-bottom: 1.5rem;
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            font-size: 16px;
+
+            &:focus {
+                border-color: $primary-color;
+                outline: none;
+                box-shadow: 0 0 5px rgba($primary-color, 0.5);
+            }
+        }
+
+        .error-message {
+            color: $error-color;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 12px;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+
+        &:disabled {
+            background-color: $border-color;
+            cursor: not-allowed;
+        }
+    }
+    
+    .success-message {
+        color: $success-color;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}

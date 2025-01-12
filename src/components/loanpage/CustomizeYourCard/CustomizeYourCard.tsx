@@ -1,5 +1,6 @@
 import React from 'react'
 import './customizeyourcart.scss'
+import PrescoringForm from '../form/Form';
 
 function CustomizeYourCard() {
   return (
@@ -23,7 +24,7 @@ function CustomizeYourCard() {
               </div>
             </div>
             <div className='customizeyourcard__formcontent'>
-                
+                <PrescoringForm />
             </div>
         </div>
     </div>
