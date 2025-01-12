@@ -100,6 +100,7 @@ const PrescoringForm: React.FC = () => {
             <div className='form-field'>
                 <Label htmlFor="middleName">Отчество</Label>
                 <Field name="middleName" />
+                <ErrorMessage name="middleNam" component="div" className="error-message"/>
             </div>
             <div className='form-field'>
                 <Label htmlFor="email">Email</Label>
