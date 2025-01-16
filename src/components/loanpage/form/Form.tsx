@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './prescoringForm.scss';
+import Button from '../../ui/button/Button';
 
 interface FormValues {
   amount: number;
@@ -62,6 +63,7 @@ const PrescoringForm: React.FC = () => {
   };
 
   return (
+    <>
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -69,67 +71,89 @@ const PrescoringForm: React.FC = () => {
     >
       {({ values, errors, touched, setFieldValue }) => (
         <Form>
-          <div className='form-field'>
-            <Label htmlFor="amount">Сумма: {values.amount}</Label>
-            <Field 
-              name="amount" 
-              type="range" 
-              min={15000} 
-              max={600000} 
-              step={1000}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue("amount", Number(e.target.value))}
-            />
-            {errors.amount && touched.amount ? (
-                <div style={{ color: 'red' }}>{errors.amount}</div>
-            ) : null}
+
+        <div className='customizeyourcard__content'>
+                  <div className='customizeyourcard__firstcontent'>
+                    <div className='customizeyourcard__header'>
+                      <div className='customizeyourcard__title'>Customize your card</div>
+                      <div className='customizeyourcard__step'>Step 1 of 5</div>
+                    </div>
+                      <div className='customizeyourcard__select'> 
+                        <div className='customizeyourcard__step'>Select amount</div>
+                          <div className='form-field'>
+                            <Label htmlFor="amount">{values.amount}</Label>
+                            <br />
+                            <Field 
+                              name="amount" 
+                              type="range" 
+                              min={15000} 
+                              max={600000} 
+                              step={1000}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue("amount", Number(e.target.value))}
+                            />
+                            {errors.amount && touched.amount ? (
+                                <div style={{ color: 'red' }}>{errors.amount}</div>
+                            ) : null}
+                          </div>
+                      </div>
+                  </div>
+                  <hr className='customizeyourcard__mainline' />
+                  <div className='customizeyourcard__subheader'>
+                    <div className='customizeyourcard__subtitle'>You have chosen the amount</div>
+                    <div className='customizeyourcard__step'>{values.amount} ₽</div>
+                    <hr className='customizeyourcard__line' />
+                  </div>
           </div>
-          <div className='form-field'>
-            <Label htmlFor="term">Срок</Label>
-            <Field as="select" name="term">
-              <option value={6}>6 месяцев</option>
-              <option value={12}>12 месяцев</option>
-              <option value={18}>18 месяцев</option>
-              <option value={24}>24 месяца</option>
-            </Field>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="firstName">Имя</Label>
-            <Field name="firstName" />
-            <ErrorMessage name="firstName" component="div" className="error-message"/>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="lastName">Фамилия</Label>
-            <Field name="lastName" />
-            <ErrorMessage name="lastName" component="div" className="error-message"/>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="middleName">Отчество</Label>
-            <Field name="middleName" />
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="email">Email</Label>
-            <Field name="email" type="email" />
-            <ErrorMessage name="email" component="div" className="error-message"/>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="birthdate">Дата рождения</Label>
-            <Field name="birthdate" type="date" />
-            <ErrorMessage name="birthdate" component="div" className="error-message"/>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="passportSeries">Серия паспорта</Label>
-            <Field name="passportSeries" />
-            <ErrorMessage name="passportSeries" component="div" className="error-message"/>
-          </div>
-          <div className='form-field'>
-            <Label htmlFor="passportNumber">Номер паспорта</Label>
-            <Field name="passportNumber" />
-            <ErrorMessage name="passportNumber" component="div" className="error-message"/>
-          </div>
-          <button type="submit" className="submit-button">Отправить</button>
+                <div className='customizeyourcard__formcontent'>
+                    <div className='form-field'>
+                      <Label htmlFor="term">Select term</Label>
+                      <Field as="select" name="term">
+                        <option value={6}>6 месяцев</option>
+                        <option value={12}>12 месяцев</option>
+                        <option value={18}>18 месяцев</option>
+                        <option value={24}>24 месяца</option>
+                      </Field>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="firstName">Your first name</Label>
+                      <Field name="firstName" />
+                      <ErrorMessage name="firstName" component="div" className="error-message"/>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="lastName">Your last name</Label>
+                      <Field name="lastName" />
+                      <ErrorMessage name="lastName" component="div" className="error-message"/>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="middleName">Your patronymic</Label>
+                      <Field name="middleName" />
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="email">Your email</Label>
+                      <Field name="email" type="email" />
+                      <ErrorMessage name="email" component="div" className="error-message"/>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="birthdate">Your date of birth</Label>
+                      <Field name="birthdate" type="date" />
+                      <ErrorMessage name="birthdate" component="div" className="error-message"/>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="passportSeries">Your passport series</Label>
+                      <Field name="passportSeries" />
+                      <ErrorMessage name="passportSeries" component="div" className="error-message"/>
+                    </div>
+                    <div className='form-field'>
+                      <Label htmlFor="passportNumber">Your passport number</Label>
+                      <Field name="passportNumber" />
+                      <ErrorMessage name="passportNumber" component="div" className="error-message"/>
+                    </div>
+                </div>
+          <Button>Continue</Button>
         </Form>
       )}
     </Formik>
+    </>
   );
 };
 

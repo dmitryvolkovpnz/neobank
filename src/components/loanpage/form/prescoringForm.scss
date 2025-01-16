@@ -50,30 +50,30 @@ $success-color: #2ecc71; // Цвет для успешных сообщений
         }
     }
 
-    .submit-button {
-        width: 100%;
-        padding: 12px;
-        background-color: $primary-color;
-        border: none;
-        border-radius: 4px;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
 
-        &:hover {
-            background-color: darken($primary-color, 10%);
-        }
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
 
-        &:disabled {
-            background-color: $border-color;
-            cursor: not-allowed;
+            &:disabled {
+                background-color: $border-color;
+                cursor: not-allowed;
+            }
         }
-    }
-    
-    .success-message {
-        color: $success-color;
-        margin-top: 1rem;
-        text-align: center;
-    }
+        
+        .success-message {
+            color: $success-color;
+            margin-top: 1rem;
+            text-align: center;
+        }
 }
