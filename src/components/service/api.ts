@@ -26,3 +26,7 @@ const fetchNews = async () =>{
     }
 };
 export {fetchNews};
+
+
+
+
