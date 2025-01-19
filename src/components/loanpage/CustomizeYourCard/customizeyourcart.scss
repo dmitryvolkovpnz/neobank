@@ -28,6 +28,7 @@
         font-size: 16px;
         font-weight: 500;
         line-height: 16px;
+        margin-bottom: 20px;
     }
 
     &__select{
@@ -67,6 +68,14 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    &__formtitle{
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-top: 40px;
     }
 }
 

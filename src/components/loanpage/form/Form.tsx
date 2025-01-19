@@ -81,7 +81,7 @@ function PrescoringForm() {
                       <div className='customizeyourcard__select'> 
                         <div className='customizeyourcard__step'>Select amount</div>
                           <div className='form-field__range'>
-                            <Label htmlFor="amount">{values.amount}</Label>
+                            <Label htmlFor="amount">{values.amount}</Label><br />
                             <Field 
                               name="amount" 
                               type="range" 
@@ -90,9 +90,10 @@ function PrescoringForm() {
                               step={1000}
                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue("amount", Number(e.target.value))}
                             />
-                            {errors.amount && touched.amount ? (
-                                <div style={{ color: 'red' }}>{errors.amount}</div>
-                            ) : null}
+                            <div className='form-field__minMax'>
+                                <span>15 000</span>
+                                <span>600 000</span>
+                            </div>
                           </div>
                       </div>
                   </div>
@@ -103,23 +104,39 @@ function PrescoringForm() {
                     <hr className='customizeyourcard__line' />
                   </div>
           </div>
+          <div className='customizeyourcard__formtitle'>Contact Information</div>
                 <div className='customizeyourcard__formcontent'>
-
                     <div className='form-field'>
                       <Label htmlFor="lastName">Your last name</Label>
-                      <Field name="lastName" />
+                      <Field 
+                          name="lastName" 
+                          placeholder="For Example Doe" 
+                          className={errors.lastName && touched.lastName ? "error-input" : ""}
+                      />
+                      {errors.lastName && touched.lastName ? (
+                          <div className="error-icon">
+                            <img src="img/Close_round_fill.svg" alt=""/>
+                          </div>
+                      ) : null}
                       <ErrorMessage name="lastName" component="div" className="error-message"/>
                     </div>
 
                     <div className='form-field'>
                       <Label htmlFor="firstName">Your first name</Label>
-                      <Field name="firstName" />
+                      <Field 
+                          name="firstName" 
+                          placeholder="For Example Jhon"
+                          className={errors.firstName && touched.firstName ? "error-input" : ""}
+                      />
+                      {errors.firstName && touched.firstName ? (
+                          <div className="error-icon"><img src="img/Close_round_fill.svg" alt=""/></div>
+                      ) : null}
                       <ErrorMessage name="firstName" component="div" className="error-message"/>
                     </div>
 
                     <div className='form-field'>
                       <Label htmlFor="middleName">Your patronymic</Label>
-                      <Field name="middleName" />
+                      <Field name="middleName" placeholder="For Example Victorovich"/>
                     </div>
                     
                     <div className='form-field'>
@@ -128,35 +145,70 @@ function PrescoringForm() {
                         <option value={6}>6 months</option>
                         <option value={12}>12 months</option>
                         <option value={18}>18 months</option>
-                        <option value={24}>24 months
-
-                        </option>
+                        <option value={24}>24 months</option>
                       </Field>
                     </div>
 
-
                     <div className='form-field'>
                       <Label htmlFor="email">Your email</Label>
-                      <Field name="email" type="email" />
+                      <Field 
+                          name="email" 
+                          type="email" 
+                          placeholder="test@gmail.com" 
+                          className={errors.email && touched.email ? "error-input" : ""}
+                      />
+                      {errors.email && touched.email ? (
+                          <div className="error-icon">
+                            <img src="img/Close_round_fill.svg" alt=""/>
+                          </div>
+                      ) : null}
                       <ErrorMessage name="email" component="div" className="error-message"/>
                     </div>
+
                     <div className='form-field'>
                       <Label htmlFor="birthdate">Your date of birth</Label>
-                      <Field name="birthdate" type="date" />
+                      <Field 
+                          name="birthdate" 
+                          type="date" 
+                          placeholder="Select Date and Time"
+                          className={errors.birthdate && touched.birthdate ? "error-input" : ""}
+                      />
                       <ErrorMessage name="birthdate" component="div" className="error-message"/>
                     </div>
+
                     <div className='form-field'>
                       <Label htmlFor="passportSeries">Your passport series</Label>
-                      <Field name="passportSeries" />
+                      <Field 
+                          name="passportSeries" 
+                          placeholder="0000"
+                          className={errors.passportSeries && touched.passportSeries ? "error-input" : ""}
+                      />
+                      {errors.passportSeries && touched.passportSeries ? (
+                        <div className="error-icon">
+                          <img src="img/Close_round_fill.svg" alt=""/>
+                        </div>
+                      ) : null}
                       <ErrorMessage name="passportSeries" component="div" className="error-message"/>
                     </div>
+
                     <div className='form-field'>
                       <Label htmlFor="passportNumber">Your passport number</Label>
-                      <Field name="passportNumber" />
-                      <ErrorMessage name="passportNumber" component="div" className="error-message"/>
+                      <Field 
+                          name="passportNumber" 
+                          placeholder="000000"
+                          className={errors.passportNumber && touched.passportNumber ? "error-input" : ""}
+                      />
+                      {errors.passportNumber && touched.passportNumber ? (
+                          <div className="error-icon">
+                            <img src="img/Close_round_fill.svg" alt=""/>
+                          </div>
+                      ) : null}
+                      <ErrorMessage name="passportNumber" component="div" className="error-message" />
                     </div>
                 </div>
-          <Button>Continue</Button>
+                <div className='form__button'>
+                      <Button>Continue</Button>
+                </div>
         </Form>
       )}
     </Formik>
