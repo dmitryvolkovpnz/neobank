@@ -3,22 +3,8 @@ $border-color: #e0e0e0; // Цвет рамок и разделителей
 $error-color: #e74c3c; // Цвет для сообщений об ошибках
 $success-color: #2ecc71; // Цвет для успешных сообщений
 
-.form-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-    h2 {
-        text-align: center;
-        color: $primary-color;
-        margin-bottom: 1.5rem;
-    }
-
-    .form-field {
+.form-field {
+        width: 22%;
         margin-bottom: 1.5rem;
         
         label {
@@ -30,7 +16,7 @@ $success-color: #2ecc71; // Цвет для успешных сообщений
 
         input,
         select {
-            width: 100%;
+            width: 86%;
             padding: 12px;
             border: 1px solid $border-color;
             border-radius: 4px;
@@ -43,37 +29,23 @@ $success-color: #2ecc71; // Цвет для успешных сообщений
             }
         }
 
-        .error-message {
-            color: $error-color;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-    }
+    &__range{
+        width: 100%;
+        margin-bottom: 1.5rem;
 
-        .submit-button {
-            width: 100%;
+        input,
+        select {
+            width: 86%;
             padding: 12px;
-            background-color: $primary-color;
-            border: none;
+            border: 1px solid $border-color;
             border-radius: 4px;
-            color: #fff;
             font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
 
-            &:hover {
-                background-color: darken($primary-color, 10%);
-            }
-
-            &:disabled {
-                background-color: $border-color;
-                cursor: not-allowed;
+            &:focus {
+                border-color: $primary-color;
+                outline: none;
+                box-shadow: 0 0 5px rgba($primary-color, 0.5);
             }
         }
-        
-        .success-message {
-            color: $success-color;
-            margin-top: 1rem;
-            text-align: center;
-        }
+    }    
 }

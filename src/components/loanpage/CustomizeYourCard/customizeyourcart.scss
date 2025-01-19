@@ -63,7 +63,10 @@
         border-top: 2px dashed #ddd;
     }
 
-
-
+    &__formcontent{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 }
 

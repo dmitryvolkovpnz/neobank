@@ -16,7 +16,7 @@ interface FormValues {
   passportNumber: string;
 }
 
-const PrescoringForm: React.FC = () => {
+function PrescoringForm() {
   const initialValues: FormValues = {
     amount: 0,
     term: 6,
@@ -31,19 +31,19 @@ const PrescoringForm: React.FC = () => {
 
   const validationSchema = Yup.object({
     amount: Yup.number()
-      .min(15000, 'Минимальная сумма 15000')
-      .max(600000, 'Максимальная сумма 600000')
-      .required('Сумма обязательна'),
+      .min(15000, 'Min amount 15000')
+      .max(600000, 'Max amount 600000')
+      .required('Amount required'),
     term: Yup.number()
-      .oneOf([6, 12, 18, 24], 'Неверный термин')
-      .required('Термин обязателен'),
-    firstName: Yup.string().required('Имя обязательно'),
-    lastName: Yup.string().required('Фамилия обязательна'),
+      .oneOf([6, 12, 18, 24], 'Error term')
+      .required('The term is required'),
+    firstName: Yup.string().required('Name required'),
+    lastName: Yup.string().required('Last name is required'),
     middleName: Yup.string().nullable(),
-    email: Yup.string().email('Неверный формат электронной почты').required('Email обязателен'),
+    email: Yup.string().email('Invalid email format').required('Email required'),
     birthdate: Yup.date()
-      .required('Дата рождения обязательна')
-      .test('age', 'Клиент должен быть не младше 18 лет', value => {
+      .required('Date of birth is required')
+      .test('age', 'The client must be at least 18 years old.', value => {
         if (!value) return false;
         const today = new Date();
         const birthDate = new Date(value);
@@ -51,15 +51,15 @@ const PrescoringForm: React.FC = () => {
         return age >= 18;
       }),
     passportSeries: Yup.string()
-      .matches(/^\d{4}$/, 'Серия паспорта должна состоять из 4 цифр')
-      .required('Серия паспорта обязательна'),
+      .matches(/^\d{4}$/, 'The passport series must consist of 4 digits.')
+      .required('Passport series is mandatory'),
     passportNumber: Yup.string()
-      .matches(/^\d{6}$/, 'Номер паспорта должен состоять из 6 цифр')
-      .required('Номер паспорта обязателен'),
+      .matches(/^\d{6}$/, 'The passport number must consist of 6 digits.')
+      .required('Passport number is required'),
   });
 
   const handleSubmit = (values: FormValues) => {
-    console.log('Отправка данных:', values);
+    console.log('Sending data:', values);
   };
 
   return (
@@ -80,9 +80,8 @@ const PrescoringForm: React.FC = () => {
                     </div>
                       <div className='customizeyourcard__select'> 
                         <div className='customizeyourcard__step'>Select amount</div>
-                          <div className='form-field'>
+                          <div className='form-field__range'>
                             <Label htmlFor="amount">{values.amount}</Label>
-                            <br />
                             <Field 
                               name="amount" 
                               type="range" 
@@ -105,29 +104,37 @@ const PrescoringForm: React.FC = () => {
                   </div>
           </div>
                 <div className='customizeyourcard__formcontent'>
-                    <div className='form-field'>
-                      <Label htmlFor="term">Select term</Label>
-                      <Field as="select" name="term">
-                        <option value={6}>6 месяцев</option>
-                        <option value={12}>12 месяцев</option>
-                        <option value={18}>18 месяцев</option>
-                        <option value={24}>24 месяца</option>
-                      </Field>
-                    </div>
-                    <div className='form-field'>
-                      <Label htmlFor="firstName">Your first name</Label>
-                      <Field name="firstName" />
-                      <ErrorMessage name="firstName" component="div" className="error-message"/>
-                    </div>
+
                     <div className='form-field'>
                       <Label htmlFor="lastName">Your last name</Label>
                       <Field name="lastName" />
                       <ErrorMessage name="lastName" component="div" className="error-message"/>
                     </div>
+
+                    <div className='form-field'>
+                      <Label htmlFor="firstName">Your first name</Label>
+                      <Field name="firstName" />
+                      <ErrorMessage name="firstName" component="div" className="error-message"/>
+                    </div>
+
                     <div className='form-field'>
                       <Label htmlFor="middleName">Your patronymic</Label>
                       <Field name="middleName" />
                     </div>
+                    
+                    <div className='form-field'>
+                      <Label htmlFor="term">Select term</Label>
+                      <Field as="select" name="term">
+                        <option value={6}>6 months</option>
+                        <option value={12}>12 months</option>
+                        <option value={18}>18 months</option>
+                        <option value={24}>24 months
+
+                        </option>
+                      </Field>
+                    </div>
+
+
                     <div className='form-field'>
                       <Label htmlFor="email">Your email</Label>
                       <Field name="email" type="email" />
