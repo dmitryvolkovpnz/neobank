@@ -5,7 +5,7 @@ type ButtonProps = {
 }
 
 const Button: React.FC<ButtonProps> = ({ children }) => {
-    return <button className="button">{children}</button>;
+    return <button className="button" type="submit">{children}</button>;
   };
 
 export default Button;

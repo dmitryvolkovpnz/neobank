@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './prescoringForm.scss';
 import Button from '../../ui/button/Button';
+import axios from "axios";
 
 interface FormValues {
   amount: number;
@@ -17,6 +18,8 @@ interface FormValues {
 }
 
 function PrescoringForm() {
+
+
   const initialValues: FormValues = {
     amount: 0,
     term: 6,
@@ -58,8 +61,18 @@ function PrescoringForm() {
       .required('Passport number is required'),
   });
 
-  const handleSubmit = (values: FormValues) => {
-    console.log('Sending data:', values);
+  const handleSubmit = async (values: FormValues) => {
+    try{
+      const response = await axios.post(`http://localhost:8080/application`, values,);
+      if(response.status === 200){
+        localStorage.setItem("offers", JSON.stringify(response.data));
+        localStorage.setItem("id", response.data[0].applicationId);
+        console.log(values);
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -87,7 +100,7 @@ function PrescoringForm() {
                               type="range" 
                               min={15000} 
                               max={600000} 
-                              step={1000}
+                              step={100}
                               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue("amount", Number(e.target.value))}
                             />
                             <div className='form-field__minMax'>
