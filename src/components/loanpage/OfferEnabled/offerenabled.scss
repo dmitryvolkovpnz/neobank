@@ -1,0 +1,25 @@
+.offerenabled{
+  margin: 50px 0;
+
+  &__content{
+    padding: 40px 0;
+    border: 1px solid #5B35D5;
+    border-radius: 10px;
+  }
+
+  &__title{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 33px;
+  }
+
+  &__subtitle{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #4F5665;
+  }
+
+}
