@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './prescoringForm.scss';
 import Button from '../../ui/button/Button';
 import axios from "axios";
+import CrediOffers from "../CreditOffers/CrediOffers";
+import {offerStore} from "../../../store/offerStore";
 
 interface FormValues {
   amount: number;
@@ -17,8 +19,9 @@ interface FormValues {
   passportNumber: string;
 }
 
-function PrescoringForm() {
 
+function PrescoringForm() {
+  const {trueOffer, isOffer} = offerStore();
 
   const initialValues: FormValues = {
     amount: 0,
@@ -67,13 +70,27 @@ function PrescoringForm() {
       if(response.status === 200){
         localStorage.setItem("offers", JSON.stringify(response.data));
         localStorage.setItem("id", response.data[0].applicationId);
-        console.log(values);
+        if(values){
+          trueOffer();
+        }
+        localStorage.setItem("isOffers", "true");
       }
     }
     catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    const ofer = localStorage.getItem("isOffers");
+    if(ofer){
+      trueOffer();
+    }
+  }, []);
+
+  if(isOffer){
+    return <CrediOffers />;
+  }
 
   return (
     <>
