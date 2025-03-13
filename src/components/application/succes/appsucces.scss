@@ -1,0 +1,18 @@
+.AppSucces {
+  height: 250px;
+  padding: 142px 0;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: #4F5665;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

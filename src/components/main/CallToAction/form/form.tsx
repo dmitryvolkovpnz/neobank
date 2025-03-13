@@ -15,7 +15,7 @@ function NewsletterSubscription() {
 
     const handleSubscribe = async () => {
         try {
-            await axios.post('http://192.168.0.246:8080/email', {
+            await axios.post('http://localhost:8080/email', {
                 email: email,
             });
             setIsSubscribed(true);

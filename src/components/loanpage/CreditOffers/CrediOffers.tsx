@@ -34,7 +34,7 @@ function CreditOffers() {
     const handleSelectOffer = async (offer: OfferT) => {
         selectOffer(offer);
         try {
-            const response = await axios.post(`http://192.168.0.246:8080/application/apply`, offer,);
+            const response = await axios.post(`http://localhost:8080/application/apply`, offer,);
             if (response.status === 200) {
                 applyOffer();
                 localStorage.setItem("isOfferEnabled", "true");

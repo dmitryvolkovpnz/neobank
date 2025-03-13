@@ -66,7 +66,7 @@ function PrescoringForm() {
 
     const handleSubmit = async (values: FormValues) => {
         try {
-            const response = await axios.post(`http://192.168.0.246:8080/application`, values,);
+            const response = await axios.post(`http://localhost:8080/application`, values,);
             if (response.status === 200) {
                 localStorage.setItem("offers", JSON.stringify(response.data));
                 localStorage.setItem("id", response.data[0].applicationId);

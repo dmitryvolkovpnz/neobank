@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import "./scoringFrom.scss";
 import Button from '../../ui/button/Button';
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import {offerStore} from "../../../store/offerStore";
+import AppSucces from "../succes/AppSucces";
 
 interface FormValues {
     gender: 'MALE' | 'FEMALE';
@@ -21,6 +23,9 @@ interface FormValues {
 }
 
 function ScoringForm() {
+
+    const {isStep2, isStep} = offerStore();
+
     const initialValues: FormValues = {
         gender: 'MALE',
         maritalStatus: 'SINGLE',
@@ -58,16 +63,35 @@ function ScoringForm() {
     const applicationId = useParams().applicationId;
 
     const handleSubmit = async (values: FormValues) => {
-        console.log(values);
         try {
-            const response = await axios.put(`http://192.168.0.246:8080/application/registration/${applicationId}`, values);
+            const response = await axios.put(`http://localhost:8080/application/registration/${applicationId}`, values);
             if (response.status === 200) {
-                console.log(response.data)
+                localStorage.setItem("isStep2", "true");
+                if (values) {
+                    isStep2();
+                }
+                console.log('ok');
             }
         } catch (err) {
             console.log(err);
         }
+
     };
+
+    const isStep2true = () => {
+    };
+
+    useEffect(() => {
+        const step2 = localStorage.getItem("isStep2");
+        if (step2) {
+            isStep2();
+        }
+    }, []);
+
+    if (isStep) {
+        return <AppSucces/>;
+    }
+
     return (
         <Formik
             initialValues={initialValues}
@@ -85,7 +109,6 @@ function ScoringForm() {
                         </div>
                     </div>
 
-                    {/* Поля формы */}
                     <div className='customizeyourcard__formtitle'>Personal Information</div>
                     <div className='customizeyourcard__formcontent'>
                         {/* Gender */}
@@ -98,7 +121,6 @@ function ScoringForm() {
                             <ErrorMessage name="gender" component="div" className="error-message"/>
                         </div>
 
-                        {/* Marital Status */}
                         <div className='form-field'>
                             <Label htmlFor="maritalStatus">Marital Status</Label>
                             <Field as="select" name="maritalStatus">
@@ -110,7 +132,6 @@ function ScoringForm() {
                             <ErrorMessage name="maritalStatus" component="div" className="error-message"/>
                         </div>
 
-                        {/* Dependent Amount */}
                         <div className='form-field'>
                             <Label htmlFor="dependentAmount">Dependent Amount</Label>
                             <Field as="select" name="dependentAmount">
@@ -122,7 +143,6 @@ function ScoringForm() {
                             <ErrorMessage name="dependentAmount" component="div" className="error-message"/>
                         </div>
 
-                        {/* Passport Issue Date */}
                         <div className='form-field'>
                             <Label htmlFor="passportIssueDate">Passport Issue Date</Label>
                             <Field name="passportIssueDate" type="date"
@@ -130,7 +150,6 @@ function ScoringForm() {
                             <ErrorMessage name="passportIssueDate" component="div" className="error-message"/>
                         </div>
 
-                        {/* Passport Issue Branch */}
                         <div className='form-field'>
                             <Label htmlFor="passportIssueBranch">Passport Issue Branch</Label>
                             <Field name="passportIssueBranch" placeholder="123456"
@@ -138,7 +157,6 @@ function ScoringForm() {
                             <ErrorMessage name="passportIssueBranch" component="div" className="error-message"/>
                         </div>
 
-                        {/* Employment Status */}
                         <div className='form-field'>
                             <Label htmlFor="employmentStatus">Employment Status</Label>
                             <Field as="select" name="employmentStatus">
@@ -150,7 +168,6 @@ function ScoringForm() {
                             <ErrorMessage name="employmentStatus" component="div" className="error-message"/>
                         </div>
 
-                        {/* Employer INN */}
                         <div className='form-field'>
                             <Label htmlFor="employerINN">Employer INN</Label>
                             <Field name="employerINN" placeholder="123456789012"
@@ -158,7 +175,6 @@ function ScoringForm() {
                             <ErrorMessage name="employerINN" component="div" className="error-message"/>
                         </div>
 
-                        {/* Salary */}
                         <div className='form-field'>
                             <Label htmlFor="salary">Salary</Label>
                             <Field name="salary" type="number"
@@ -166,7 +182,6 @@ function ScoringForm() {
                             <ErrorMessage name="salary" component="div" className="error-message"/>
                         </div>
 
-                        {/* Position */}
                         <div className='form-field'>
                             <Label htmlFor="position">Position</Label>
                             <Field as="select" name="position">
@@ -178,7 +193,6 @@ function ScoringForm() {
                             <ErrorMessage name="position" component="div" className="error-message"/>
                         </div>
 
-                        {/* Work Experience Total */}
                         <div className='form-field'>
                             <Label htmlFor="workExperienceTotal">Total Work Experience (years)</Label>
                             <Field name="workExperienceTotal" type="number" max="99"
@@ -186,7 +200,6 @@ function ScoringForm() {
                             <ErrorMessage name="workExperienceTotal" component="div" className="error-message"/>
                         </div>
 
-                        {/* Work Experience Current */}
                         <div className='form-field'>
                             <Label htmlFor="workExperienceCurrent">Current Work Experience (years)</Label>
                             <Field name="workExperienceCurrent" type="number" max="99"
