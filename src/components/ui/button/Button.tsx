@@ -1,13 +1,24 @@
 import "./button.scss";
 import React from "react";
-import {string} from "yup";
 
 type ButtonProps = {
     children: React.ReactNode,
+    link?: string,
+    type?: "button" | "submit" | "reset",
 }
 
-const Button: React.FC<ButtonProps> = ({children}) => {
-    return <button className="button" type="submit">{children}</button>;
+const Button: React.FC<ButtonProps> = ({children, link, type}) => {
+    const handleClick = () => {
+        if (link) {
+            window.location.href = link;
+        }
+    }
+    return <button
+        className="button"
+        onClick={handleClick}
+        type={type}
+    >{children}
+    </button>;
 };
 
 export default Button;

@@ -1,13 +1,13 @@
 .page-not-found {
   margin: 24px 0;
 
-  &__main{
+  &__main {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &__title{
+  &__title {
     font-size: 30px;
     font-weight: 700;
     line-height: 33px;
@@ -15,7 +15,7 @@
     margin-bottom: 30px;
   }
 
-  &__bottomtitle{
+  &__bottomtitle {
     font-size: 30px;
     font-weight: 500;
     line-height: 33px;
@@ -23,7 +23,7 @@
     margin-bottom: 30px;
   }
 
-  &__subtitle{
+  &__subtitle {
     font-size: 16px;
     font-weight: 500;
     line-height: 18px;
@@ -31,7 +31,7 @@
     margin-bottom: 40px;
   }
 
-  &__button{
+  &__button {
     padding: 16px 60px;
     border-radius: 16px;
     background-color: #003CFF;
@@ -45,10 +45,10 @@
 
 
 @media (max-width: 920px) {
-  .page-not-found{
+  .page-not-found {
 
-    &__img{
-      img{
+    &__img {
+      img {
         width: 100%;
       }
     }
@@ -56,13 +56,13 @@
 }
 
 @media (max-width: 500px) {
-  .page-not-found{
+  .page-not-found {
 
-    &__main{
+    &__main {
       display: block;
     }
 
-    &__button{
+    &__button {
       padding: 13px 50px;
       font-size: 13px;
     }

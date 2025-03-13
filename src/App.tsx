@@ -5,19 +5,21 @@ import Home from './page/Home';
 import HomeLayout from './layouts/home-layouts';
 import Loanpage from './page/Loanpage';
 import ErrorPage from "./page/404";
+import Application from "./page/Application";
 
 function App() {
-  return (
-    <BrowserRouter>
-        <Routes>
-            <Route element={<HomeLayout/>}>
-                <Route path="/" Component={Home}/>
-                <Route path="/loan-page" Component={Loanpage}/>
-                <Route path="*" Component={ErrorPage}/>
-            </Route>  
-        </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route element={<HomeLayout/>}>
+                    <Route path="/" Component={Home}/>
+                    <Route path="/loan-page" Component={Loanpage}/>
+                    <Route path="/loan-page/:applicationId" Component={Application}/>
+                    <Route path="*" Component={ErrorPage}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
