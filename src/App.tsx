@@ -6,6 +6,7 @@ import HomeLayout from './layouts/home-layouts';
 import Loanpage from './page/Loanpage';
 import ErrorPage from "./page/404";
 import Application from "./page/Application";
+import PaymentSchedule from "./components/application/paymentSchedule/PaymentSchedule";
 
 function App() {
     return (
@@ -13,8 +14,9 @@ function App() {
             <Routes>
                 <Route element={<HomeLayout/>}>
                     <Route path="/" Component={Home}/>
-                    <Route path="/loan-page" Component={Loanpage}/>
-                    <Route path="/loan-page/:applicationId" Component={Application}/>
+                    <Route path="/loan" Component={Loanpage}/>
+                    <Route path="/loan/:applicationId" Component={Application}/>
+                    <Route path="/loan/:applicationId/document" Component={PaymentSchedule}/>
                     <Route path="*" Component={ErrorPage}/>
                 </Route>
             </Routes>

@@ -1,0 +1,15 @@
+.payment-schedule-table {
+  width: 100%;
+
+  &__headText {
+    text-align: start;
+    padding: 14px 0;
+    font-size: 12px;
+  }
+
+  &__contentText {
+    font-size: 12px;
+    padding: 7px 0;
+  }
+}
+

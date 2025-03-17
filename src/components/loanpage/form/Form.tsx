@@ -100,7 +100,6 @@ function PrescoringForm() {
             >
                 {({values, errors, touched, setFieldValue}) => (
                     <Form>
-
                         <div className='customizeyourcard__content' id="applyForm">
                             <div className='customizeyourcard__firstcontent'>
                                 <div className='customizeyourcard__header'>
