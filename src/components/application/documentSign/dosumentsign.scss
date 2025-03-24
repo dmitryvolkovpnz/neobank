@@ -1,0 +1,46 @@
+.dosumentSign {
+  margin: 100px 0;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  &__text {
+    margin: 32px 0;
+    color: #4F5665;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    margin-left: -10px;
+
+    span {
+      font-weight: 500;
+      font-size: 20px;
+      margin-left: 12px;
+    }
+  }
+
+  &__img {
+
+  }
+
+  &__btngroup {
+    margin-top: 32px;
+    justify-content: end;
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-right: 60px;
+    }
+  }
+
+  &__btn {
+    padding: 15px 50px;
+  }
+}

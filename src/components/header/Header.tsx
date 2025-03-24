@@ -12,7 +12,7 @@ function Header() {
                         <div className="header__logo">NeoBank</div>
                         <nav className="header__nav">
                             <ul>
-                                <li><Link to="/loan-page">Credit card</Link></li>
+                                <li><Link to="/loan">Credit card</Link></li>
                                 <li>Product</li>
                                 <li>Account</li>
                                 <li>Resources</li>

@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {offerStore} from "../../../store/offerStore";
-import StepMessage from "../stepMessage/StepMessage";
+import StepMessage from "../documentStepMessage/StepMessage";
 
 type TPayment = {
     id: number;
