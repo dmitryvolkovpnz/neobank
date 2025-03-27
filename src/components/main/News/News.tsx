@@ -1,13 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './news.scss';
 import { fetchNews } from "../../service/api";
+import { TItem } from "../../../utils/types";
 
-type TItem = {
-    title: string;
-    urlToImage: string;
-    url: string;
-    description: string;
-}
 
 function News(){
     const [items, setItems] = useState<TItem[]>([]);

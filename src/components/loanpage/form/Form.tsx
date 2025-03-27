@@ -6,6 +6,7 @@ import Button from '../../ui/button/Button';
 import axios from "axios";
 import CrediOffers from "../CreditOffers/CrediOffers";
 import {offerStore} from "../../../store/offerStore";
+import { BASE_URL } from '../../../utils/const/const';
 
 interface FormValues {
     amount: number;
@@ -66,7 +67,7 @@ function PrescoringForm() {
 
     const handleSubmit = async (values: FormValues) => {
         try {
-            const response = await axios.post(`http://localhost:8080/application`, values,);
+            const response = await axios.post(`${BASE_URL}/application`, values,);
             if (response.status === 200) {
                 localStorage.setItem("offers", JSON.stringify(response.data));
                 localStorage.setItem("id", response.data[0].applicationId);

@@ -3,17 +3,9 @@ import './creditoffers.scss';
 import {offerStore} from "../../../store/offerStore";
 import axios from "axios";
 import OfferEnabled from "../OfferEnabled/OfferEnabled";
+import { BASE_URL } from '../../../utils/const/const';
+import { OfferT } from '../../../utils/types';
 
-export type OfferT = {
-    applicationId?: number;
-    requestedAmount: number;
-    totalAmount: number;
-    term: number;
-    monthlyPayment: number;
-    rate: number;
-    isInsuranceEnabled: boolean;
-    isSalaryClient: boolean;
-};
 
 function CreditOffers() {
     const {offers, setOffers, selectOffer, applyOffer, isOfferEnabled} = offerStore();
@@ -34,7 +26,7 @@ function CreditOffers() {
     const handleSelectOffer = async (offer: OfferT) => {
         selectOffer(offer);
         try {
-            const response = await axios.post(`http://localhost:8080/application/apply`, offer,);
+            const response = await axios.post(`${BASE_URL}/application/apply`, offer,);
             if (response.status === 200) {
                 applyOffer();
                 localStorage.setItem("isOfferEnabled", "true");

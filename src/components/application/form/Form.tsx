@@ -7,6 +7,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import {offerStore} from "../../../store/offerStore";
 import AppSucces from "../succes/AppSucces";
+import { BASE_URL } from '../../../utils/const/const';
 
 interface FormValues {
     gender: 'MALE' | 'FEMALE';
@@ -79,7 +80,7 @@ function ScoringForm() {
                 account: "11223344556677889900"
             };
 
-            const response = await axios.put(`http://localhost:8080/application/registration/${applicationId}`, payload);
+            const response = await axios.put(`${BASE_URL}/application/registration/${applicationId}`, payload);
 
             if (response.status === 200) {
                 localStorage.setItem("isStep2", "true");

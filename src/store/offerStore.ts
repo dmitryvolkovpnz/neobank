@@ -1,31 +1,5 @@
 import {create} from 'zustand';
-
-type OfferT = {
-    applicationId?: number;
-    requestedAmount: number;
-    totalAmount: number;
-    term: number;
-    monthlyPayment: number;
-    rate: number;
-    isInsuranceEnabled: boolean;
-    isSalaryClient: boolean;
-};
-
-type OfferStore = {
-    offers: OfferT[];
-    selectedOffer: OfferT | null;
-    isOfferEnabled: boolean;
-    isOffer: boolean;
-    isStep: boolean;
-    isSelected: boolean;
-    setOffers: (offers: OfferT[]) => void;
-    selectOffer: (offer: OfferT) => void;
-    applyOffer: () => void;
-    trueOffer: () => void;
-    isStep2: () => void;
-    isStep3: () => void;
-    clearSelectedOffer: () => void;
-};
+import { OfferStore } from '../utils/types';
 
 export const offerStore = create<OfferStore>((set) => ({
     offers: [],

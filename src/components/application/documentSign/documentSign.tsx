@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import DocSvg from "../../ui/docSvg/docSvg";
 import {useParams} from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from '../../../utils/const/const';
 
 function DocumentSign() {
     const applicationId = useParams().applicationId;
@@ -15,7 +16,7 @@ function DocumentSign() {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post(`http://localhost:8080/document/${applicationId}/sign`);
+            const response = await axios.post(`${BASE_URL}/document/${applicationId}/sign`);
             if (response.status === 200) {
                 localStorage.setItem("isDocumentSign", "true");
                 console.log('Request successful');

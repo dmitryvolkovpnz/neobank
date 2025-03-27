@@ -4,16 +4,9 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {offerStore} from "../../../store/offerStore";
 import StepMessage from "../documentStepMessage/StepMessage";
+import { BASE_URL } from '../../../utils/const/const';
+import { TPayment } from '../../../utils/types';
 
-type TPayment = {
-    id: number;
-    number: number;
-    date: string;
-    debtPayment: number;
-    interestPayment: number;
-    remainingDebt: number;
-    totalPayment: number;
-}
 
 function PaymentSchedule() {
     const applicationId = useParams().applicationId;
@@ -22,7 +15,7 @@ function PaymentSchedule() {
 
     const handleSelect = async () => {
         try {
-            const response = await axios.post(`http://localhost:8080/document/${applicationId}`);
+            const response = await axios.post(`${BASE_URL}/document/${applicationId}`);
             if (response.status === 200) {
                 localStorage.setItem("isPaymentSelect", "true");
                 isStep3();
@@ -41,7 +34,7 @@ function PaymentSchedule() {
         }
         const fetchDocData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/admin/application/${applicationId}`);
+                const response = await axios.get(`${BASE_URL}/admin/application/${applicationId}`);
                 setPaymets(response.data.credit.paymentSchedule);
                 console.log('Request successful');
             } catch (error) {

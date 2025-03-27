@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../../../utils/const/const';
 
 function NewsletterSubscription() {
     const [email, setEmail] = useState<string>('');
@@ -15,7 +16,7 @@ function NewsletterSubscription() {
 
     const handleSubscribe = async () => {
         try {
-            await axios.post('http://localhost:8080/email', {
+            await axios.post(`${BASE_URL}/email`, {
                 email: email,
             });
             setIsSubscribed(true);
